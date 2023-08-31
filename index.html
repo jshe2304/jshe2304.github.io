@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="style.css">
+    <script src="worm.js"></script>
+
+    <title>jay shen</title>
+  </head>
+
+  <body onload="load();">
+    <div id="content">
+      <div id="wrapper">
+        <div id="links" class="section">
+          <div class="line hoverable" id="title">
+            <h4 id="name">jay shen</h4>
+            <div id="description">
+              <p>i built this website. i go to the university of chicago. physics. cs. email me. </p>
+            </div>
+          </div>
+          <div class="line hoverable"><a href="mailto:jshe@uchicago.edu">email</a></div>
+          <div class="line hoverable"><a href="https://github.com/jshe2304">github</a></div>
+          <div class="line hoverable">
+            <a  id="photos" href="IMG_1837.JPG">photos</a>
+            <div id="description"><p>no photos yet</p></div>
+          </div>
+        </div>
+        <div class="section">
+          <canvas id="worm-box" width="50%" height="25%"></canvas>
+        </div>
+        <div id="numbers" class="section">
+          <div class="line">
+            <div id="mouse-x"></div>
+            <div id="mouse-y"></div>
+          </div>
+          <div id="velocity-toggle-wrapper" class="line hoverable">
+            <button id="velocity-toggle" onclick="toggleVel();">
+              <div id="vx"></div>
+              <div id="vy"></div>
+              <div id="v"></div>
+            </button>
+          </div>
+          <div class="line">
+            <div id="x"></div>
+            <div id="y"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
