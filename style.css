@@ -60,7 +60,7 @@ h4 {
 
 .hoverable a:hover {
     color: white;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
 }
 
 #title {
@@ -92,7 +92,7 @@ h4 {
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap:0.25em;
+    gap: 0.25em;
 }
 
 #velocity-toggle {

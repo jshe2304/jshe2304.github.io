@@ -23,12 +23,7 @@ class Worm {
 
     draw(showvel) {
         for (let i=0; i< this.length; i++) {
-            this.ctx.fillRect(
-                Math.floor(this.x[i] - this.width/2 + 4 * Math.sin(i/5)), 
-                Math.floor(this.y[i] - this.width/2 + 4 * Math.sin(i/5)), 
-                this.width, 
-                this.width
-            );
+            this.ctx.fillRect(Math.floor(this.x[i]) - this.width/2, Math.floor(this.y[i]) - 1, this.width, this.width);
             //this.ctx.fillRect(this.x[i] - this.width/2, this.y[i] - this.width/2, this.width, this.width);
             if (showvel){
                 this.ctx.fillRect(this.x[0] + this.vx * 100 - this.width/2, this.y[0] + this.vy * 100 - this.width/2, this.width, this.width);
@@ -61,7 +56,6 @@ class Worm {
 
         //Chase
         if (cx && cy) {
-            const magn = Math.sqrt(Math.pow(cx, 2) + Math.pow(cy, 2)) * 200;
             this.vx += (cx - this.x[0])/(Math.abs(cx - this.x[0])*1000) * Math.log(Math.abs(cx - this.x[0]));
             this.vy += (cy - this.y[0])/(Math.abs(cy - this.y[0])*1000) * Math.log(Math.abs(cy - this.y[0]));
         }
