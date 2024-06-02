@@ -15,24 +15,44 @@
     <div id="main">
         <div id="wrapper">
             <div id="links" class="section">
-                <div class="line hoverable shows-content" id="title">
+                <div class="line hoverable shows-content" id="title-widget">
                     <h4 id="name">jay shen</h4>
-                    <div id="description" width="50%" height="25%">
-                        <p>i built this website. i go to the university of chicago. physics. cs. email me. </p>
-                    </div>
                 </div>
-                <div class="line hoverable"><a href="mailto:jshe@uchicago.edu">email</a></div>
-                <div class="line hoverable"><a href="https://github.com/jshe2304">github</a></div>
-                <div class="line hoverable shows-content">
-                    <a id="photos">photos</a>
-                    <div id="description">
-                        <p>no photos yet</p>
-                    </div>
+                <div class="line hoverable">
+                    <a href="mailto:jshe@uchicago.edu">email</a>
+                </div>
+                <div class="line hoverable">
+                    <a href="https://github.com/jshe2304">github</a>
+                </div>
+                <div class="line hoverable shows-content" id="photos-widget">
+                    <p>photos</p>
                 </div>
             </div>
-            <div id="display" class="section" width="50%" height="25%">
-                <canvas id="worm-box"></canvas>
+
+            <div id="display" class="section">
+                <div class="content text-content" id="info" style="display:none;">
+                    <p>
+                        i am a student at the university of chicago studying 
+                        physics. 
+                    </p>
+                    <p>
+                        i am interested in applying machine learning to physical 
+                        science and vice versa. 
+                    </p>
+                    <p>
+                        <a href="">here</a> are some samples of my work. 
+                    </p>
+                    <p>
+                        this website was written in pure html/css/js and is 
+                        hosted on s3. the worm is sentient. 
+                    </p>
+                </div>
+                <div class="content text-content" id="photos" style="display:none;">
+                    <p>nothing here yet...</p>
+                </div>
+                <canvas class="content" id="canvas"></canvas>
             </div>
+
             <div id="numbers" class="section">
                 <div class="line">
                     <div id="mouse-x"></div>

@@ -26,6 +26,10 @@ const v = document.getElementById("v")
 const mouse_x = document.getElementById("mouse-x")
 const mouse_y = document.getElementById("mouse-y")
 
+const display = document.getElementById("display");
+const titleWidget = document.getElementById('title-widget');
+const photosWidget = document.getElementById('photos-widget');
+
 
 /**************
 State Variables
@@ -37,11 +41,11 @@ let mousein = false; // Mouse in worm box
 let mousex = NaN; // Mouse x position
 let mousey = NaN; // Mouse y position
 
-let showVel = false; // Show velocity vector?
+let showingVel = false; // Show velocity vector?
 
-let showContent = false; // Show content?
+let showingContent = null; // Show content?
 
-let canvas = document.getElementById("worm-box"); // Canvas
+let canvas = document.getElementById("canvas"); // Canvas
 let context; // Context
 let worm; // Worm
 
@@ -51,11 +55,11 @@ Page Rendering Functions
 
 function draw() { // Draw worm
 
-    if (showContent) return;
+    if (showingContent) return;
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    worm.draw(showVel);
+    worm.draw(showingVel);
 
     mousein ? worm.update(mousex, mousey) : worm.update();
     
@@ -70,20 +74,33 @@ function draw() { // Draw worm
     raf = window.requestAnimationFrame(draw);
 }
 
-
-const load = function () { // Set up worm environment
-
-    canvas.width = window.innerWidth/3;
-    canvas.height = window.innerHeight/3;
+function load () { // Set up worm environment
 
     context = canvas.getContext("2d");
 
-    worm = new Worm(canvas.width/2, canvas.height/2, 0, 0, 150, 2, canvas, context)
+    worm = new Worm(canvas.width/2, canvas.height/2, 0, 0, 128, 2, canvas, context)
 
     raf = window.requestAnimationFrame(draw);
 }
 
-canvas.onmouseover = function (event) {
+function toggleContent(id) {
+    if (showingContent == null) {
+        showingContent = id;
+        canvas.style.display = "none";
+        document.getElementById(id).style.display = "block";
+    } else if (showingContent == id) {
+        showingContent = null;
+        canvas.style.display = "block"
+        document.getElementById(id).style.display = "none"
+        raf = window.requestAnimationFrame(draw);
+    } else {
+        document.getElementById(showingContent).style.display = "none";
+        showingContent = id;
+        document.getElementById(id).style.display = "block";
+    }
+}
+
+canvas.onmouseover = function () {
     mousein = true;
     document.onmousemove = function (event) {
         mousex = event.offsetX;
@@ -97,8 +114,17 @@ canvas.onmouseout = function() {
     document.onmousemove = null;
 }
 
+// Toggle velocity vector animation
 document.getElementById("velocity-toggle").onclick = function() {
-    showVel = !showVel
+    showingVel = !showingVel
+}
+
+titleWidget.onmousedown = function() {
+    toggleContent("info")
+}
+
+photosWidget.onmousedown = function() {
+    toggleContent("photos")
 }
 
 // Reload upon window resize
