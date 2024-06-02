@@ -38,15 +38,12 @@ let mousex = NaN; // Mouse x position
 let mousey = NaN; // Mouse y position
 
 let showVel = false; // Show velocity vector?
-const toggleVel = function() {
-    showVel = !showVel
-}
 
 let showContent = false; // Show content?
 
-let canvas1 = document.getElementById("worm-box"); // Canvas
-let ctx1; // Context
-let worm1; // Worm
+let canvas = document.getElementById("worm-box"); // Canvas
+let context; // Context
+let worm; // Worm
 
 /***********************
 Page Rendering Functions
@@ -56,17 +53,17 @@ function draw() { // Draw worm
 
     if (showContent) return;
 
-    ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-    worm1.draw(showVel);
+    worm.draw(showVel);
 
-    mousein ? worm1.update(mousex, mousey) : worm1.update();
+    mousein ? worm.update(mousex, mousey) : worm.update();
     
-    x.innerHTML = pad(worm1.x[0]);
-    y.innerHTML = pad(worm1.y[0]);
-    vx.innerHTML = pad(worm1.vx);
-    vy.innerHTML = pad(worm1.vy);
-    v.innerHTML = pad(Math.sqrt(Math.pow(worm1.vx, 2), Math.pow(worm1.vy, 2)));
+    x.innerHTML = pad(worm.x[0]);
+    y.innerHTML = pad(worm.y[0]);
+    vx.innerHTML = pad(worm.vx);
+    vy.innerHTML = pad(worm.vy);
+    v.innerHTML = pad(Math.sqrt(Math.pow(worm.vx, 2), Math.pow(worm.vy, 2)));
     mouse_x.innerHTML = pad(mousex);
     mouse_y.innerHTML = pad(mousey);
     
@@ -76,28 +73,32 @@ function draw() { // Draw worm
 
 const load = function () { // Set up worm environment
 
-    canvas1.width = window.innerWidth/3;
-    canvas1.height = window.innerHeight/3;
+    canvas.width = window.innerWidth/3;
+    canvas.height = window.innerHeight/3;
 
-    canvas1.onmouseover = function (event) {
-        mousein = true;
-        document.onmousemove = function (event) {
-            mousex = event.offsetX;
-            mousey = event.offsetY;
-        };
-    }
-    canvas1.onmouseout = function() {
-        mousein = false;
-        mousex = NaN;
-        mousey = NaN;
-        document.onmousemove = null;
-    }
+    context = canvas.getContext("2d");
 
-    ctx1 = canvas1.getContext("2d");
-
-    worm1 = new Worm(canvas1.width/2, canvas1.height/2, 0, 0, 150, 2, canvas1, ctx1)
+    worm = new Worm(canvas.width/2, canvas.height/2, 0, 0, 150, 2, canvas, context)
 
     raf = window.requestAnimationFrame(draw);
+}
+
+canvas.onmouseover = function (event) {
+    mousein = true;
+    document.onmousemove = function (event) {
+        mousex = event.offsetX;
+        mousey = event.offsetY;
+    };
+}
+canvas.onmouseout = function() {
+    mousein = false;
+    mousex = NaN;
+    mousey = NaN;
+    document.onmousemove = null;
+}
+
+document.getElementById("velocity-toggle").onclick = function() {
+    showVel = !showVel
 }
 
 // Reload upon window resize
