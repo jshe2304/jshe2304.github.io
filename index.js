@@ -27,7 +27,7 @@ const mouse_x = document.getElementById("mouse-x")
 const mouse_y = document.getElementById("mouse-y")
 
 const display = document.getElementById("display");
-const titleWidget = document.getElementById('title-widget');
+const aboutWidget = document.getElementById('about-widget');
 const photosWidget = document.getElementById('photos-widget');
 
 
@@ -119,8 +119,8 @@ document.getElementById("velocity-toggle").onclick = function() {
     showingVel = !showingVel
 }
 
-titleWidget.onmousedown = function() {
-    toggleContent("info")
+aboutWidget.onmousedown = function() {
+    toggleContent("about")
 }
 
 photosWidget.onmousedown = function() {
