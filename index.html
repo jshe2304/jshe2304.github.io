@@ -2,82 +2,74 @@
 <html lang="en-US">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="index.css">
-    <script src="worm.js"></script>
 
-    <title>jay shen</title>
+    <title>Jay Shen</title>
+    <meta name="description" content="Jay Shen — Physics and Computer Science undergraduate at UChicago." />
 </head>
 
-<body onload="load();">
-    <div id="main">
-        <div id="wrapper">
-            <div id="links" class="section">
-                <div class="line">
-                    <h4 id="name">jay shen</h4>
-                </div>
-                <div class="line hoverable shows-content" id="about-widget">
-                    <p>about</p>
-                </div>
-                <div class="line hoverable">
-                    <a href="mailto:jshe@uchicago.edu">email</a>
-                </div>
-                <div class="line hoverable">
-                    <a href="https://github.com/jshe2304">github</a>
-                </div>
-                <div class="line hoverable">
-                    <a href="work.html">work</a>
-                </div>
-                <!--
-                <div class="line hoverable shows-content" id="photos-widget">
-                    <p>photos</p>
-                </div>
-                -->
-            </div>
+<body>
+    <main id="container">
+        <section id="header">
+            <h1>Jay Shen</h1>
+            <div>jshe@uchicago.edu</div>
+            <nav>
+                <a href="https://github.com/jshe2304">github</a>
+                <a href="https://www.linkedin.com/in/jshe2304/">linkedin</a>
+                <a href="./files/cv.pdf">cv</a>
+            </nav>
+        </section>
 
-            <div id="display" class="section">
-                <div class="text-content" id="about" style="display:none;">
-                    <p>
-                        i am an undergraduate at the university of chicago 
-                        studying physics and computer science. 
-                    </p>
-                    <p>
-                        i am interested in applying machine learning to physical 
-                        science and vice versa. 
-                    </p>
-                    <p>
-                        this website was written in pure html/css/js and is 
-                        hosted on s3. yes, the worm is sentient. 
-                    </p>
-                </div>
-                <div class="text-content" id="photos" style="display:none;">
-                    <p>nothing here yet...</p>
-                </div>
-                <canvas class="content" id="canvas"></canvas>
-            </div>
+        <section id="summary">
+            <p>
+                I'm an undergraduate at the University of Chicago studying physics and computer Science. 
+                I am interested in high-impact applications of machine learning to statistical physics and quantum chemistry. 
+                To transcend traditional algorithms, data-driven models must leverage domain knowledge but not be constrained by it. 
+            </p>
+            <p>
+                I am currently working on dynamical system emulation using vision transformers. 
+            </p>
+        </section>
 
-            <div id="numbers" class="section">
-                <div class="line">
-                    <div id="mouse-x"></div>
-                    <div id="mouse-y"></div>
-                </div>
-                <div id="velocity-toggle" class="line hoverable">
-                    <div id="vx"></div>
-                    <div id="vy"></div>
-                    <div id="v"></div>
-                </div>
-                <div class="line">
-                    <div id="x"></div>
-                    <div id="y"></div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="index.js"></script>
+        <section id="work">
+            <h2>My work</h2>
+            <ul>
+                <li>
+                    An empirical evaluation of attention biases applied to molecular property prediction. 
+                    <span>
+                        <a href="./files/molecular-attention-bias.pdf">manuscript</a>
+                        <a href="./files/molecular-attention-bias.pdf">presentation</a>
+                        <a href="https://github.com/jshe2304/molecular_attention_bias">code</a>
+                    </span>
+                </li>
+                <li>
+                    A review and optimization of the MLRG algorithm for neurally learning renormalization group flows over 2D Ising models. 
+                    <span>
+                        <a href="./files/mlrg-manuscript.pdf">manuscript</a>
+                        <a href="./files/mlrg-short.pdf">presentation</a>
+                        <a href="https://github.com/jshe2304/dlrg">code</a>
+                    </span>
+                </li>
+                <li>
+                    Applying MCMC and belief propagation to the 2D Ising model. 
+                    <span>
+                        <a href="./files/ising-manuscript.pdf">manuscript</a>
+                        <a href="https://github.com/jshe2304/ttic31180">code</a>
+                    </span>
+                </li>
+                <li>
+                    A study of content moderation policy across major internet websites via massive text scraping and dataset analysis. 
+                    <span>
+                        <a href="https://dl.acm.org/doi/pdf/10.1145/3613904.3642333">paper</a>
+                        <a href="https://github.com/noise-lab/content-moderation">code</a>
+                    </span>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>
